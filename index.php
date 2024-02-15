@@ -1,11 +1,11 @@
 <?php
 require_once 'classes/Database.php';
-require_once 'classes/Estoque.php'; // Corrigi o nome da classe
+require_once 'classes/Estoque.php'; 
 
 $db = new Database();
 $conn = $db->getConnection();
 
-$estoque = new Estoque($conn); // Corrigi o nome da classe
+$estoque = new Estoque($conn); 
 
 $jsonProdutos = '[
     {
@@ -64,8 +64,8 @@ $jsonProdutos = '[
         "data_disponibilidade": "2023-06-01",
         "quantidade": 8
     }
-]'; // Adicionei a vírgula no final do JSON
+]'; 
 
-// Exemplo de uso
+
 $estoque->atualizarEstoque($jsonProdutos);
 ?>

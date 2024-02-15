@@ -19,7 +19,7 @@ class Database {
             $this->conn = new PDO("mysql:host={$this->host};dbname={$this->dbname}", $this->username, $this->password);
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $this->createProductsTable(); // Adiciona a criação da tabela durante a inicialização
+            $this->createProductsTable();
 
             return $this->conn;
         } catch (PDOException $e) {
@@ -29,14 +29,6 @@ class Database {
 
     private function createProductsTable() {
         try {
-            // $query = "
-            //     CREATE TABLE IF NOT EXISTS produtos (
-            //         id_produto INT PRIMARY KEY,
-            //         quantidade INT,
-            //         preco DECIMAL(10, 2),
-            //         descricao VARCHAR(255)
-            //     )
-            // ";
             $query = "
             CREATE TABLE IF NOT EXISTS estoque (
               id INT UNSIGNED auto_increment NOT NULL,
