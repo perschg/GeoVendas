@@ -1,0 +1,24 @@
+php:
+  build: .
+  ports:
+    - "8080:80"
+  volumes:
+    - .:/var/www/html
+  environment:
+    DB_HOST: db
+    DB_NAME: geovendas
+    DB_USER: admin
+    DB_PASSWORD: admin
+  links:
+   - db
+db:
+  image: mysql:latest
+  environment:
+    MYSQL_ROOT_PASSWORD: root
+    MYSQL_DATABASE: geovendas
+    MYSQL_USER: admin
+    MYSQL_PASSWORD: admin
+  ports:
+    - "3306:3306"
+  volumes:
+    - ./mysql-data:/var/lib/mysql
